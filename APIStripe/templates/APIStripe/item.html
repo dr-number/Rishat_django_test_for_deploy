@@ -1,0 +1,17 @@
+{% extends 'rishat_test/base.html' %}
+
+{{ title }}
+
+{% block content %}
+
+<div class="container">
+    {{ name }}
+    {{ descrition }}
+    {{ price }}
+
+    <form action="/create-checkout-session" method="POST">
+        <button type="submit">Buy</button>
+    </form>
+</div>
+
+{% endblock %}

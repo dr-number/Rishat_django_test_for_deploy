@@ -12,10 +12,6 @@ services:
       - POSTGRES_PASSWORD=postgres
     ports:
       - "5432:5432"
-  # redis:
-  #   image: redis:5 #for web sockets
-  #   ports:
-  #     - "6379:6379"
   web:
     build: .
     # user: 1000:1000
@@ -32,4 +28,3 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
-      #- redis
