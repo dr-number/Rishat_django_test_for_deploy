@@ -5,9 +5,9 @@
 {% block content %}
 
 <div class="container">
-    {{ name }}
-    {{ descrition }}
-    {{ price }}
+    {{ item.name }}
+    {{ item.descrition }}
+    {{ item.price }}
 
     <form action="/create-checkout-session" method="POST">
         <button type="submit">Buy</button>

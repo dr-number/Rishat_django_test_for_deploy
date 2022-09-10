@@ -86,12 +86,12 @@ DATABASES = {
     }
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/code/cache',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': '/code/cache',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -144,3 +144,9 @@ def show_toolbar(request):
 DEBUG_TOOLBAR_CONFIG = {
   "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
 }
+
+STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = ""
+STRIPE_WEBHOOK_SECRET = ""
+
+CURRENT_HOST = "http://localhost:8000"
