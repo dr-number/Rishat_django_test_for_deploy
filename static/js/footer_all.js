@@ -1,22 +1,29 @@
+const stripe = Stripe("pk_test_51LgR6IHVRJovbZDJEifEzGWqm5oSz8d6XlLpLMHYrdRPi5NeZb251Vqe7SzwouLYhtlvBYZIebzm6hnDPfK5jPNT00NNFTs3Zl")
 
+    document.querySelectorAll(".checkout-button").forEach(button => {
+        button.onclick = () => {
+            fetch("/buy/" + button.getAttribute("id") + "/", {
+                method: "GET"
+            })
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(session){
 
-document.getElementById("checkout-button").addEventListener("click", function() {
-    fetch("/item/", {
-        method: "GET"
-    })
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(session){
-        return stripe.redirectToCheckout(sessionId=session.id);
-    })
-    .then(function(result){
+                if(!session.error)
+                    return stripe.redirectToCheckout({sessionId: session.id});
+                else
+                    console.error("Session error: ", session.error);    
+            })
+            .then(function(result){
 
-        if(result.error){
-            alert(result.error.message);
+                if(result.error){
+                    alert(result.error.message);
+                }
+            })
+            .catch(function(error){
+                console.error("Error: ", error);
+            });
         }
-    })
-    .catch(function(error){
-        console.error("Error: ", error);
-    });
-});
+    }
+)

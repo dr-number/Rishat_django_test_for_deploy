@@ -25,7 +25,7 @@ const SYNC_START_PAGE = SYNC_SERVER + '/messager/chat_open/2/'
 
 const DIR_BUILD_STATIC = 'static'
 const DIR_SATIC_APP = '/.'
-const DIR_MAIN_APP = 'rishat_test'
+const DIR_MAIN_APP = 'main'
 const DIR_PREFIX_SATIC_APP = 'res_'
 
 const JS_INIT_FOOTER = `./${DIR_MAIN_APP}/${DIR_PREFIX_SATIC_APP}js/footer/init.js`

@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{{ title }}
+
+{% block content %}
+
+<div class="container">
+    {% if products %}
+        {{ products | safe}}
+        Count products: <b>{{count}}</b>
+    {% else %}
+        <p class="no-products">Not products!</p>
+    {% endif %}
+</div>
+
+{% endblock %}
