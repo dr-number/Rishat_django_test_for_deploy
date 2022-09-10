@@ -40,3 +40,11 @@ class CreateCheckoutSessionView(View):
 class ProductItem(TemplateView):
     template_name = "APIStripe/item.html"
 
+    # def get_context_data(self, **kwargs: Any):
+    #     context = super(ProductItem, self).get_context_data(**kwargs)
+    #     context.update({
+    #         "STRIPE_PUBLIC_KEY" : settings.STRIPE_PUBLIC_KEY
+    #     })
+
+    #     return context
+
