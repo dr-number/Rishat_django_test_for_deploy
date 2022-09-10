@@ -9,9 +9,7 @@
     {{ item.descrition }}
     {{ item.price }}
 
-    <form action="/create-checkout-session" method="POST">
-        <button type="submit">Buy</button>
-    </form>
+    <button type="submit" id="{{item.id}}" class="checkout-button">Buy</button>
 </div>
 
 {% endblock %}

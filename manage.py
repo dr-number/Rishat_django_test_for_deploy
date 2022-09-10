@@ -7,6 +7,20 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rishat_test.settings')
+
+    from django.conf import settings
+
+    if settings.DEBUG:
+        #for use toolbar from docker
+        import socket  # only if you haven't already imported this
+        hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+        settings.INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
+
+        if os.environ.get('RUN_MAIN') or os.environ.get('WERKZEUG_RUN_MAIN'):
+            import debugpy
+            debugpy.listen(("0.0.0.0", 3000))
+            print('Attached!')
+            
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

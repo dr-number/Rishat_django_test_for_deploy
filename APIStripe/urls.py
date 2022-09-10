@@ -8,6 +8,6 @@ from APIStripe.views import (
 
 
 urlpatterns = [
-    path('buy/<int:id>/', ProductItem.as_view(), name='buy'),
-    path('item/<int:id>/', CreateCheckoutSessionView.as_view(), name='item')
+    path('item/<int:id>/', ProductItem.as_view(), name='buy'),
+    path('buy/<int:id>/', CreateCheckoutSessionView.as_view(), name='item')
 ]

@@ -38,5 +38,5 @@ class CreateCheckoutSessionView(View):
 
 
 class ProductItem(TemplateView):
-    template_name: "APIStripe/item.html"
+    template_name = "APIStripe/item.html"
 

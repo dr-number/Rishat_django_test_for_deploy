@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <script src="{% static 'js/header_all.js' %}"></script>
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
     <title>{{ title }}</title>
 </head>
 <body>
@@ -34,10 +37,6 @@
                 <div class="col-12 col-md">
 
                 </div>
-
-                <a class="href-btn gitlab" href="https://dr.number.gitlab.io/mask-lite/">
-		            <img src="{% static 'img/main/mask.png' %}">
-	            </a>
 
             </footer>
         </div>
