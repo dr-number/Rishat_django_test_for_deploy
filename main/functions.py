@@ -1,2 +1,2 @@
 def getCurrentHost(request):
-    return request.META['HTTP_HOST']
+    return request.META['HTTP_REFERER']
