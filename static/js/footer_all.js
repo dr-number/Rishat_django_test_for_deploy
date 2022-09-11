@@ -31,7 +31,8 @@ document.querySelectorAll(".basket-buy-all").forEach(button => {
     button.onclick = () => {
 
         const array = [];
-        let name, price, count, item
+        const ids = [];
+        let name, price, count, item;
 
         document.querySelectorAll(".product").forEach(product => {
 
@@ -51,10 +52,15 @@ document.querySelectorAll(".basket-buy-all").forEach(button => {
             }
 
             array.push(item);
+            ids.push(product.getAttribute("product-id"));
 
         })
 
-        const data = {'data' : array};
+        const data = {
+            'ids' : ids,
+            'data' : array
+        };
+
         runInServerFetch('buy_basket', data)
             .then(function(response){
                 return response.json();

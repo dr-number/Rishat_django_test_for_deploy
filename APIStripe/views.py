@@ -1,3 +1,4 @@
+from array import array
 from itertools import count
 import stripe
 from django.conf import settings
@@ -5,10 +6,12 @@ from django.views import View
 from django.http import JsonResponse
 from django.views.generic import TemplateView
 from django.template.loader import render_to_string
+from django.core.cache import cache
 import json
 
 
 from APIStripe.models import Item
+from main.functions import getCurrentHost
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -19,11 +22,21 @@ class BasketCreateCheckoutSessionView(View):
             data_post = json.load(request)
 
             session = stripe.checkout.Session.create(
-                line_items=data_post['data'],
+                line_items = data_post['data'],
                 mode = 'payment',
-                success_url = settings.CURRENT_HOST + '/success/',
-                cancel_url = settings.CURRENT_HOST + '/cancel/',
+                success_url = getCurrentHost(request) + '/success/',
+                cancel_url = getCurrentHost(request) + '/cancel/',
             )
+
+            clears = []
+
+            ids = data_post['ids']
+
+            for id in ids:
+                clears.append('product_' + id)
+
+            cache.delete_many(clears)
+
 
             return JsonResponse({
                 'id': session.id
