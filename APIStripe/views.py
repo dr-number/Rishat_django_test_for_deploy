@@ -95,8 +95,7 @@ class ProductItem(TemplateView):
 
         context = super(ProductItem, self).get_context_data(**kwargs)
         context.update({
-            "item" : item,
-            "STRIPE_PUBLIC_KEY" : settings.STRIPE_PUBLIC_KEY
+            "item" : item
         })
 
         return context
