@@ -10,6 +10,12 @@ And run composition
 
     docker-compose up -d
 
+Then run 
+
+    ./script_main.sh
+
+And run **[7] - Django make and apply migrations**
+
 After this you may:
 - Go to **Admin panel** http://localhost:8000/admin/ (username: **root** password: **root**)
 - Go to **All products** http://localhost:8000/
