@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=-h7c$vnue96u%55-e13$3sc^oe#l_%01l3esab6((s!%+y%2)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', '.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -137,6 +137,8 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
 ]
 
+STATIC_ROOT = BASE_DIR/'staticfiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -156,3 +158,4 @@ DEBUG_TOOLBAR_CONFIG = {
 STRIPE_PUBLIC_KEY = "pk_test_51LgR6IHVRJovbZDJEifEzGWqm5oSz8d6XlLpLMHYrdRPi5NeZb251Vqe7SzwouLYhtlvBYZIebzm6hnDPfK5jPNT00NNFTs3Zl"
 STRIPE_SECRET_KEY = "sk_test_51LgR6IHVRJovbZDJrxuLBVgnlrkWu2TN0Bi8hHgJdTVu8sAWeEAblYwfzq35k6XjkFJaTLl3eMmtVp7DRn3alf7G004fdPIpbf"
 STRIPE_WEBHOOK_SECRET = ""
+
