@@ -1,7 +1,9 @@
 <div class="product">
-    {{ item.name }}
-    {{ item.descrition }}
-    <b>{{ item.get_price }}</b>
+    <div class="name">{{ item.name }}</div>
+    <div class="description">{{ item.description }}</div>
+    <div class="price">{{ item.get_price }}</div>
 
     <button type="submit" id="{{item.id}}" class="checkout-button btn btn-success">Buy</button>
+
+    <button type="submit" class="basket-button btn btn-danger" data-product-id="{{item.id}}" data-type-change="1">Add to basket</button>
 </div>

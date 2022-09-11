@@ -20,4 +20,5 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls, name='admin_panel'),
     path('', include('APIStripe.urls')),
+    path('basket/', include('basket.urls')),
 ]
