@@ -25,3 +25,8 @@ After this you may:
 1) Add product to basked using button **Add to basket** (on page: **http://localhost:8000/**)
 2) Go to page **http://localhost:8000/basket/** (where you can change the count of products)
 3) Click on the button **Buy all**
+
+
+## Deploy 
+**http://d4dd-5-128-71-145.ngrok.io**
+**https://d4dd-5-128-71-145.ngrok.io**
