@@ -24,8 +24,8 @@ class BasketCreateCheckoutSessionView(View):
             session = stripe.checkout.Session.create(
                 line_items = data_post['data'],
                 mode = 'payment',
-                success_url = getCurrentHost(request) + 'success/',
-                cancel_url = getCurrentHost(request) + 'cancel/',
+                success_url = request.META['HTTP_ORIGIN'] + '/success/',
+                cancel_url = request.META['HTTP_ORIGIN'] + '/cancel/',
             )
 
             clears = []
@@ -66,8 +66,8 @@ class CreateCheckoutSessionView(View):
                     'quantity': 1,
                 }],
                 mode = 'payment',
-                success_url = getCurrentHost(request) + 'success/',
-                cancel_url = getCurrentHost(request) + 'cancel/',
+                success_url = request.META['HTTP_REFERER'] + 'success/',
+                cancel_url = request.META['HTTP_REFERER'] + 'cancel/',
             )
 
             return JsonResponse({

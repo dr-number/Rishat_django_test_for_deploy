@@ -27,6 +27,10 @@ SECRET_KEY = 'django-insecure-=-h7c$vnue96u%55-e13$3sc^oe#l_%01l3esab6((s!%+y%2)
 DEBUG = True
 
 ALLOWED_HOSTS = ['*', '.vercel.app', '.now.sh']
+CSRF_TRUSTED_ORIGINS = [
+        'http://d4dd-5-128-71-145.ngrok.io',
+        'https://d4dd-5-128-71-145.ngrok.io'
+    ]
 
 
 # Application definition
